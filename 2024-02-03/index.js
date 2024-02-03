@@ -22,5 +22,20 @@ function tmino(pox, poy) {
     ctx.stroke();
 }
 
-frame (ox,oy);
-tmino (pox, poy);
+function draw(ts){
+    frame (ox,oy);
+    tmino (ts%100, ts%200);
+}
+
+function run(ts){
+    draw(ts);
+    requestAnimationFrame(tick);
+}
+
+function tick(ts) {
+    draw(ts);
+    requestAnimationFrame(tick);
+}
+
+requestAnimationFrame(run);
+
