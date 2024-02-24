@@ -3,8 +3,6 @@ var ctx = canvas.getContext("2d");
 var s = 30;
 var ox = 0;
 var oy = 0;
-var pox = ox+50;
-var poy = oy+60;
 
 function frame(ox, oy) {
     ctx.beginPath();
@@ -15,6 +13,8 @@ function frame(ox, oy) {
 
 function tmino(pox, poy) {
     //tmino
+    pox *= s;
+    poy *= s;
     ctx.beginPath();
     ctx.rect(pox, poy, s, s);
     ctx.rect(pox+s, poy, s, s);
@@ -25,6 +25,8 @@ function tmino(pox, poy) {
 
 function imino(pox, poy) {
     //imino
+    pox *= s;
+    poy *= s;
     ctx.beginPath();
     ctx.rect(pox, poy, s, s);
     ctx.rect(pox + s, poy , s, s);
@@ -35,6 +37,8 @@ function imino(pox, poy) {
 
 function omino(pox, poy) {
     //omino
+    pox *= s;
+    poy *= s;
     ctx.beginPath();
     ctx.rect(pox, poy, s, s);
     ctx.rect(pox + s, poy , s, s);
@@ -45,6 +49,8 @@ function omino(pox, poy) {
 
 function lmino(pox, poy) {
     //lmino
+    pox *= s;
+    poy *= s;
     ctx.beginPath();
     ctx.rect(pox, poy, s, s);
     ctx.rect(pox + s, poy , s, s);
@@ -55,6 +61,8 @@ function lmino(pox, poy) {
 
 function jmino(pox, poy) {
     //jmino
+    pox *= s;
+    poy *= s;
     ctx.beginPath();
     ctx.rect(pox, poy, s, s);
     ctx.rect(pox + s, poy , s, s);
@@ -65,6 +73,8 @@ function jmino(pox, poy) {
 
 function zmino(pox, poy) {
     //zmino
+    pox *= s;
+    poy *= s;
     ctx.beginPath();
     ctx.rect(pox, poy, s, s);
     ctx.rect(pox + s, poy , s, s);
@@ -75,6 +85,8 @@ function zmino(pox, poy) {
 
 function smino(pox, poy) {
     //smino
+    pox *= s;
+    poy *= s;
     ctx.beginPath();
     ctx.rect(pox + s * 2, poy, s, s);
     ctx.rect(pox + s, poy , s, s);
@@ -86,7 +98,7 @@ function smino(pox, poy) {
 function draw(ts){
     ctx.clearRect(0,0,800,600);
     frame (ox,oy);
-    smino (ox,oy);
+    smino (3,0);
 }
 
 function run(ts){
@@ -100,4 +112,5 @@ function tick(ts) {
 }
 
 requestAnimationFrame(run);
+
 
