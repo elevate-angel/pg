@@ -1,108 +1,30 @@
 var canvas = document.querySelector("#canvas");
 var ctx = canvas.getContext("2d");
-var s = 30;
-var ox = 100;
-var oy = 100;
+var ox = 0;
+var oy = 0;
+var pox = ox+50;
+var poy = oy+60;
 
 function frame(ox, oy) {
     ctx.beginPath();
     //frame
-    ctx.rect(ox, oy, 10 * s, 20 * s);
+    ctx.rect(ox, oy, 100, 200);
     ctx.stroke();
-}
-
-function scale(o,n) {
-    return o + n * s;
 }
 
 function tmino(pox, poy) {
     //tmino
-    pox = scale(ox, pox);
-    poy = scale(oy, poy);
     ctx.beginPath();
-    ctx.rect(pox, poy, s, s);
-    ctx.rect(pox+s, poy, s, s);
-    ctx.rect(pox+s * 2, poy, s, s);
-    ctx.rect(pox+s, poy+s, s, s);
-    ctx.stroke();
-}
-
-function imino(pox, poy) {
-    //imino
-    pox = scale(ox, pox);
-    poy = scale(oy, poy);
-    ctx.beginPath();
-    ctx.rect(pox, poy, s, s);
-    ctx.rect(pox + s, poy , s, s);
-    ctx.rect(pox + s * 2, poy , s, s);
-    ctx.rect(pox + s * 3, poy , s, s);
-    ctx.stroke();
-}
-
-function omino(pox, poy) {
-    //omino
-    pox = scale(ox, pox);
-    poy = scale(oy, poy);
-    ctx.beginPath();
-    ctx.rect(pox, poy, s, s);
-    ctx.rect(pox + s, poy , s, s);
-    ctx.rect(pox, poy + s, s, s);
-    ctx.rect(pox + s, poy + s, s, s);
-    ctx.stroke();
-}
-
-function lmino(pox, poy) {
-    //lmino
-    pox = scale(ox, pox);
-    poy = scale(oy, poy);
-    ctx.beginPath();
-    ctx.rect(pox, poy, s, s);
-    ctx.rect(pox + s, poy , s, s);
-    ctx.rect(pox + s * 2, poy , s, s);
-    ctx.rect(pox , poy + s, s, s);
-    ctx.stroke();
-}
-
-function jmino(pox, poy) {
-    //jmino
-    pox = scale(ox, pox);
-    poy = scale(oy, poy);
-    ctx.beginPath();
-    ctx.rect(pox, poy, s, s);
-    ctx.rect(pox + s, poy , s, s);
-    ctx.rect(pox + s * 2, poy , s, s);
-    ctx.rect(pox + s * 2, poy + s, s, s);
-    ctx.stroke();
-}
-
-function zmino(pox, poy) {
-    //zmino
-    pox = scale(ox, pox);
-    poy = scale(oy, poy);
-    ctx.beginPath();
-    ctx.rect(pox, poy, s, s);
-    ctx.rect(pox + s, poy , s, s);
-    ctx.rect(pox + s , poy + s, s, s);
-    ctx.rect(pox + s * 2, poy + s, s, s);
-    ctx.stroke();
-}
-
-function smino(pox, poy) {
-    //smino
-    pox = scale(ox, pox);
-    poy = scale(oy, poy);
-    ctx.beginPath();
-    ctx.rect(pox + s * 2, poy, s, s);
-    ctx.rect(pox + s, poy , s, s);
-    ctx.rect(pox + s , poy + s, s, s);
-    ctx.rect(pox, poy + s, s, s);
+    ctx.rect(pox, poy, 10, 10);
+    ctx.rect(pox+10, poy, 10, 10);
+    ctx.rect(pox+20, poy, 10, 10);
+    ctx.rect(pox+10, poy+10, 10, 10);
     ctx.stroke();
 }
 
 function draw(ts){
-    ctx.clearRect(0,0,800,600);
     frame (ox,oy);
-    tmino (3,0);
+    tmino (ts%100, ts%200);
 }
 
 function run(ts){
@@ -116,5 +38,3 @@ function tick(ts) {
 }
 
 requestAnimationFrame(run);
-
-
