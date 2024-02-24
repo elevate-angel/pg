@@ -99,10 +99,26 @@ function smino(pox, poy) {
     ctx.stroke();
 }
 
+var currmino = Math.floor(Math.random() * 7) 
+
 function draw(ts){
     ctx.clearRect(0,0,800,600);
     frame (ox,oy);
-    tmino (3,0);
+    if (currmino === 0) {
+        tmino(3,0)
+    } else if (currmino === 1){
+        imino(3,0)
+    } else if (currmino === 2){
+        omino(3,0)
+    } else if (currmino === 3){
+        lmino(3,0)
+    } else if (currmino === 4){
+        jmino(3,0)
+    } else if (currmino === 5){
+        zmino(3,0)
+    } else if (currmino === 6){
+        smino(3,0)
+    } 
 }
 
 function run(ts){
